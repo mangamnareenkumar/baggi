@@ -1,0 +1,37 @@
+{
+  "cli": {
+    "version": ">= 20.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease -PreactNativeArchitectures=arm64-v8a"
+      },
+      "env": {
+        "EXPO_PUBLIC_AWS_REGION": "ap-south-1",
+        "EXPO_PUBLIC_FACE_SYNC_API_URL": "https://mtzktz5qy4zoskqgms6yfghk7i0vqtim.lambda-url.ap-south-1.on.aws/",
+        "EXPO_PUBLIC_FACE_SYNC_API_KEY": "some_random_string",
+        "EXPO_PUBLIC_AWS_S3_BUCKET": "your-datalake-face-templates-bucket"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_AWS_REGION": "ap-south-1",
+        "EXPO_PUBLIC_FACE_SYNC_API_URL": "https://mtzktz5qy4zoskqgms6yfghk7i0vqtim.lambda-url.ap-south-1.on.aws/",
+        "EXPO_PUBLIC_FACE_SYNC_API_KEY": "some_random_string",
+        "EXPO_PUBLIC_AWS_S3_BUCKET": "your-datalake-face-templates-bucket"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
